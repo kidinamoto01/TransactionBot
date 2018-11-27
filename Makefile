@@ -42,4 +42,4 @@ draw_deps:
 ########################################
 ### Compile and Install
 install:
-	go install ./irisRobot
+	go install ./irisrobot
