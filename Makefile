@@ -1,11 +1,5 @@
-PACKAGES_NOSIMULATION=$(shell go list ./... | grep -v '/simulation' | grep -v '/prometheus' | grep -v '/clitest' | grep -v '/lcd' | grep -v '/protobuf')
-PACKAGES_MODULES=$(shell go list ./... | grep 'modules')
-PACKAGES_SIMTEST=$(shell go list ./... | grep '/simulation')
 
 all: get_tools get_vendor_deps install
-
-COMMIT_HASH := $(shell git rev-parse --short HEAD)
-BUILD_FLAGS = -ldflags "-X github.com/irisnet/irishub/version.GitCommit=${COMMIT_HASH}"
 
 ########################################
 ### Tools & dependencies
@@ -33,13 +27,10 @@ get_vendor_deps:
 	@echo "--> Running dep ensure"
 	@dep ensure -v
 
-draw_deps:
-	@# requires brew install graphviz or apt-get install graphviz
-	go get github.com/RobotsAndPencils/goviz
-	@goviz -i github.com/irisnet/irishub/cmd/iris -d 2 | dot -Tpng -o dependency-graph.png
-
-
 ########################################
 ### Compile and Install
 install:
 	go install ./irisrobot
+
+build:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/irisrobot ./irisrobot
