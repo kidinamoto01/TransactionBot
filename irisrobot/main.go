@@ -376,25 +376,25 @@ func init() {
 
 func initAccounts() {
 	//transfer
-	nameFrom = "fuxi"
-	addrFrom = "faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+	nameFrom = viper.GetString("NameFrom")
+	addrFrom = viper.GetString("AddrFrom")//"faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
 
-	nameTo = "abc"
-	addrTo = "faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+	nameTo = viper.GetString("NameTo")//"abc"
+	addrTo = viper.GetString("AddrTo")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
 
 	//get sequence
 	seqFrom = GetSequence(addrFrom)
 	seqTo = GetSequence(addrTo)
 
 	//delegation
-	nameDel = "kevin"
-	addrDel = "faa12zgt9hc5r5mnxegam9evjspgwhkgn4wz8hurar"
+	nameDel = viper.GetString("NameDel")// "kevin"
+	addrDel =  viper.GetString("AddrDel")//"faa12zgt9hc5r5mnxegam9evjspgwhkgn4wz8hurar"
 	seqDel = GetSequence(addrDel)
-	valFrom = "fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
-	valTo = "fva1rexpwky46tg4vgvqxuzdxmr79w9kmgvfg7qyvn"
+	valFrom = viper.GetString("ValFrom")//"fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
+	valTo = viper.GetString("ValTo")//"fva1rexpwky46tg4vgvqxuzdxmr79w9kmgvfg7qyvn"
 
-	nameVoter = "iris"
-	addrVoter = "faa1nyaaqgc3jjwxm692ufmn0nk5gtk8p6eknjfn0h"
+	nameVoter = viper.GetString("NameVoter")//"iris"
+	addrVoter = viper.GetString("AddrVoter")//"faa1nyaaqgc3jjwxm692ufmn0nk5gtk8p6eknjfn0h"
 	seqVoter = GetSequence(addrVoter)
 
 }
@@ -434,7 +434,7 @@ func main() {
 		log.Println("transfer cron running:")
 
 	})
-	//@every second send 3 staking txs
+	//@every  second send one staking tx
 	c.AddFunc(feqDelegate, func() {
 
 		DelegateTransaction(nameDel, valFrom, valTo)

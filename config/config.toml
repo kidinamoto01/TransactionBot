@@ -2,3 +2,22 @@ frequency=3
 chain="irishub-stage"
 IP="104.198.127.16"
 valFrom="fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
+
+
+
+NameFrom = "fuxi"
+AddrFrom = "faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+
+NameTo = "abc"
+AddrTo = "faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+
+
+
+NameDel = "kevin"
+AddrDel = "faa12zgt9hc5r5mnxegam9evjspgwhkgn4wz8hurar"
+
+ValFrom = "fva1rexpwky46tg4vgvqxuzdxmr79w9kmgvfg7qyvn"
+ValTo = "fva1zee2lsmva67a9jx0fy7r5fg3mv5lgzc6eqrg3x"
+
+NameVoter = "iris"
+AddrVoter = "faa1nyaaqgc3jjwxm692ufmn0nk5gtk8p6eknjfn0h"
