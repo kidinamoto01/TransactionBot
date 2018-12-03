@@ -1,7 +1,6 @@
 frequency=3
-chain="irishub-stage"
+chain="fuxi-5000"
 IP="104.198.127.16"
-valFrom="fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
 
 
 
@@ -12,11 +11,23 @@ NameTo = "abc"
 AddrTo = "faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
 
 
+NameFrom2 = "snow"
+AddrFrom2 = "faa1kv4y00keqm4zzdelwxudvlps7vmf3ey5mpc6f3"
 
-NameDel = "kevin"
-AddrDel = "faa12zgt9hc5r5mnxegam9evjspgwhkgn4wz8hurar"
+NameTo2 = "white"
+AddrTo2 = "faa1e5vzpw74hfmsmykx0p7ac0cpyn948l8htnkwwq"
 
-ValFrom = "fva1rexpwky46tg4vgvqxuzdxmr79w9kmgvfg7qyvn"
+NameFrom3 = "dash"
+AddrFrom3 = "faa1pagdf9pz7qv6j4dxzgq3a3pmzczaaxcgn7s2dv"
+
+NameTo3 = "board"
+AddrTo3 = "faa1p24g58msjnw6m9vqchezvzu3yjzynxwvwj9323"
+
+
+NameDel = "jerry"
+AddrDel = "faa1qsrvxt32d8dpdkmxfzr82c2pfg3j7cam3utqln"
+
+ValFrom = "fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
 ValTo = "fva1zee2lsmva67a9jx0fy7r5fg3mv5lgzc6eqrg3x"
 
 NameVoter = "iris"

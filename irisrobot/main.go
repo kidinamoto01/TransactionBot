@@ -27,6 +27,21 @@ var (
 	seqFrom  int64
 	seqTo    int64
 
+
+	nameFrom2 string
+	nameTo2   string
+	addrFrom2 string
+	addrTo2   string
+	seqFrom2  int64
+	seqTo2    int64
+
+	nameFrom3 string
+	nameTo3   string
+	addrFrom3 string
+	addrTo3  string
+	seqFrom3  int64
+	seqTo3    int64
+
 	nameDel string
 	addrDel string
 	seqDel  int64
@@ -313,7 +328,7 @@ func WidthdrawTransactionWithSequence(fromName string, seq int64) (receiveAddr s
 		  "withdraw_address": "%s"
 }`, fromName, accnum, seq, chainID, account.Address))
 
-	res, body, _ := Request(port, "POST", fmt.Sprintf("/distribution/%s/withdrawAddress?async=true", account.Address), jsonStr)
+	res, body, _ := Request(port, "POST", fmt.Sprintf("/distribution/%s/withdrawReward?async=true", account.Address), jsonStr)
 
 	err := cdc.UnmarshalJSON([]byte(body), &resultTx)
 	fmt.Println(string(jsonStr))
@@ -350,11 +365,11 @@ func DelegateTransaction(fromName string, valFrom string, valTo string) {
 
 	seqDel++
 
-	WidthdrawTransactionWithSequence(fromName, seqDel)
+	_, result1 = WidthdrawTransactionWithSequence(fromName, seqDel)
 
 	seqDel++
 
-	fmt.Println(result1.Code)
+	fmt.Println(result1.Hash)
 }
 
 func init() {
@@ -382,9 +397,31 @@ func initAccounts() {
 	nameTo = viper.GetString("NameTo")//"abc"
 	addrTo = viper.GetString("AddrTo")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
 
+	//transfer
+	nameFrom2 = viper.GetString("NameFrom2")
+	addrFrom2 = viper.GetString("AddrFrom2")//"faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+
+	nameTo2 = viper.GetString("NameTo2")//"abc"
+	addrTo2 = viper.GetString("AddrTo2")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+
+	//transfer
+	nameFrom3 = viper.GetString("NameFrom3")
+	addrFrom3 = viper.GetString("AddrFrom3")//"faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+
+	nameTo3 = viper.GetString("NameTo3")//"abc"
+	addrTo3 = viper.GetString("AddrTo3")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+
 	//get sequence
 	seqFrom = GetSequence(addrFrom)
 	seqTo = GetSequence(addrTo)
+
+	//get sequence
+	seqFrom2 = GetSequence(addrFrom2)
+	seqTo2 = GetSequence(addrTo2)
+
+	//get sequence
+	seqFrom3 = GetSequence(addrFrom3)
+	seqTo3 = GetSequence(addrTo3)
 
 	//delegation
 	nameDel = viper.GetString("NameDel")// "kevin"
@@ -418,9 +455,9 @@ func main() {
 	//freq :=viper.Get("frequency")
 
 	//fmt.Println(freq)
-	feqTransfer := "* * * * * ?"      //@every second
+	feqTransfer := "0-59/5 * * * * ?"      //@every second
 	feqDelegate := "0-59/5 * * * * ?" //每分钟执行一次，30s的时候
-	feqGov := "0 0 * * ?"             //每分钟时执行一次
+	feqGov := "0-59/5 * * * * ?"             //每分钟时执行一次
 
 	//
 	////@every second send 2 transfer txs
@@ -432,6 +469,27 @@ func main() {
 		seqTo++
 
 		log.Println("transfer cron running:")
+
+	})
+	c.AddFunc(feqTransfer, func() {
+
+		SendTransactionBackforth(nameFrom2, nameTo2, addrFrom2, addrTo2, seqFrom2, seqTo2)
+
+		seqFrom2++
+		seqTo2++
+
+		log.Println("transfer cron2 running:")
+
+	})
+
+	c.AddFunc(feqTransfer, func() {
+
+		SendTransactionBackforth(nameFrom3, nameTo3, addrFrom3, addrTo3, seqFrom3, seqTo3)
+
+		seqFrom3++
+		seqTo3++
+
+		log.Println("transfer cron2 running:")
 
 	})
 	//@every  second send one staking tx
