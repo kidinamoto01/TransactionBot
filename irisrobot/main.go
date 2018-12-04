@@ -424,8 +424,8 @@ func initAccounts() {
 	seqTo3 = GetSequence(addrTo3)
 
 	//delegation
-	nameDel = viper.GetString("NameDel")// "kevin"
-	addrDel =  viper.GetString("AddrDel")//"faa12zgt9hc5r5mnxegam9evjspgwhkgn4wz8hurar"
+	nameDel = viper.GetString("NameDel")// "jerry"
+	addrDel =  viper.GetString("AddrDel")//"faa1qsrvxt32d8dpdkmxfzr82c2pfg3j7cam3utqln"
 	seqDel = GetSequence(addrDel)
 	valFrom = viper.GetString("ValFrom")//"fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
 	valTo = viper.GetString("ValTo")//"fva1rexpwky46tg4vgvqxuzdxmr79w9kmgvfg7qyvn"
@@ -456,8 +456,8 @@ func main() {
 
 	//fmt.Println(freq)
 	feqTransfer := "0-59/5 * * * * ?"      //@every second
-	feqDelegate := "0-59/5 * * * * ?" //每分钟执行一次，30s的时候
-	feqGov := "0-59/5 * * * * ?"             //每分钟时执行一次
+	feqDelegate := "0-59/10 * * * * ?" //每分钟执行一次，30s的时候
+	feqGov := "0-59/10 * * * * ?"             //每分钟时执行一次
 
 	//
 	////@every second send 2 transfer txs
