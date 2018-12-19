@@ -392,24 +392,24 @@ func init() {
 func initAccounts() {
 	//transfer
 	nameFrom = viper.GetString("NameFrom")
-	addrFrom = viper.GetString("AddrFrom")//"faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+	addrFrom = viper.GetString("AddrFrom")
 
-	nameTo = viper.GetString("NameTo")//"abc"
-	addrTo = viper.GetString("AddrTo")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+	nameTo = viper.GetString("NameTo")
+	addrTo = viper.GetString("AddrTo")
 
 	//transfer
 	nameFrom2 = viper.GetString("NameFrom2")
-	addrFrom2 = viper.GetString("AddrFrom2")//"faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+	addrFrom2 = viper.GetString("AddrFrom2")
 
-	nameTo2 = viper.GetString("NameTo2")//"abc"
-	addrTo2 = viper.GetString("AddrTo2")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+	nameTo2 = viper.GetString("NameTo2")
+	addrTo2 = viper.GetString("AddrTo2")
 
 	//transfer
 	nameFrom3 = viper.GetString("NameFrom3")
-	addrFrom3 = viper.GetString("AddrFrom3")//"faa106nhdckyf996q69v3qdxwe6y7408pvyvufy0x2"
+	addrFrom3 = viper.GetString("AddrFrom3")
 
-	nameTo3 = viper.GetString("NameTo3")//"abc"
-	addrTo3 = viper.GetString("AddrTo3")//"faa1kpyaj0v4vdv9jy8nj0k7w3cnrnvxwvh3hzytdp"
+	nameTo3 = viper.GetString("NameTo3")
+	addrTo3 = viper.GetString("AddrTo3")
 
 	//get sequence
 	seqFrom = GetSequence(addrFrom)
@@ -424,14 +424,14 @@ func initAccounts() {
 	seqTo3 = GetSequence(addrTo3)
 
 	//delegation
-	nameDel = viper.GetString("NameDel")// "jerry"
-	addrDel =  viper.GetString("AddrDel")//"faa1qsrvxt32d8dpdkmxfzr82c2pfg3j7cam3utqln"
+	nameDel = viper.GetString("NameDel")
+	addrDel =  viper.GetString("AddrDel")
 	seqDel = GetSequence(addrDel)
-	valFrom = viper.GetString("ValFrom")//"fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
-	valTo = viper.GetString("ValTo")//"fva1rexpwky46tg4vgvqxuzdxmr79w9kmgvfg7qyvn"
+	valFrom = viper.GetString("ValFrom")
+	valTo = viper.GetString("ValTo")
 
-	nameVoter = viper.GetString("NameVoter")//"iris"
-	addrVoter = viper.GetString("AddrVoter")//"faa1nyaaqgc3jjwxm692ufmn0nk5gtk8p6eknjfn0h"
+	nameVoter = viper.GetString("NameVoter")
+	addrVoter = viper.GetString("AddrVoter")
 	seqVoter = GetSequence(addrVoter)
 
 }

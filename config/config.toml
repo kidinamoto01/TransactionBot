@@ -1,5 +1,5 @@
 frequency=3
-chain="fuxi-5000"
+chain="fuxi-6000"
 IP="104.198.127.16"
 
 
@@ -27,7 +27,7 @@ AddrTo3 = "faa1p24g58msjnw6m9vqchezvzu3yjzynxwvwj9323"
 NameDel = "jerry"
 AddrDel = "faa1qsrvxt32d8dpdkmxfzr82c2pfg3j7cam3utqln"
 
-ValFrom = "fva106nhdckyf996q69v3qdxwe6y7408pvyvfcwqmd"
+ValFrom = "fva1y359pygp0rnu0e9vp8jz8uq6w5td7sdesaf9z3"
 ValTo = "fva1zee2lsmva67a9jx0fy7r5fg3mv5lgzc6eqrg3x"
 
 NameVoter = "iris"
